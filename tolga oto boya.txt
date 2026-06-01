@@ -1,0 +1,32 @@
+ Tolga Oto Boya
+ 
+ 
+ Tolga Oto Boya için bir web sitesi yapmak istiyorum
+ 
+ Responsive tailwind ccs ile yapılmış modern görünmüme sahip bir web sitesi
+ 
+ 
+ Web sitesinde iletişim kısmı  kurumun konumu  Yapılan işlerin fotoğrafları olmalı
+ 
+ 
+ Boya Koruma 
+ 
+ Far Temizleme
+ 
+ Pasta Cila
+ 
+Oto Boya ksımları olup yapılan işler anlatılmalı ve fotoğraflar ile desteklenmeli
+
+
+---------------------------------------
+
+Çalışmalarımız Kısmına   
+
+Far Temizleme Ksımı Eklenicek
+
+Çalışmalarımız Kısmında  Her Kategori için uygun resimleri ekle hepsinde aynı resimler var şuan
+
+Tolga Oto Boya Sayfanın İlk Kısmında LogO Fotoğrafını ekle ve üst  üste binen kısımları düzelt
+
+
+Fotoğrafları düzgünce ekle her kısım için  Ve videyu da ekle

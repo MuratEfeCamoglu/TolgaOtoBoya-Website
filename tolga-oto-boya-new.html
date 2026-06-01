@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tolga Oto Boya | Profesyonel Araç Boyama &amp; Detay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --red: #cc0000;
+      --red-dark: #990000;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark2: #1a1a1a;
+      --dark3: #222222;
+      --silver-dark: #999;
+      --white: #f5f5f5;
+      --text: #d0d0d0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--text);
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.94);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(204, 0, 0, 0.35);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 75px;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 3px;
+      color: var(--white);
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--silver-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .nav-cta {
+      background: var(--red);
+      color: white !important;
+      padding: 10px 24px;
+      border-radius: 2px;
+    }
+
+    .nav-cta:hover {
+      background: var(--red-dark) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 27px;
+      height: 2px;
+      background: var(--white);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 75px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.98);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      padding: 30px 8%;
+      border-bottom: 1px solid rgba(204, 0, 0, 0.3);
+      z-index: 999;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 18px;
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+      padding-top: 75px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(204, 0, 0, 0.13) 0%, transparent 70%), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255, 255, 255, 0.015) 80px, rgba(255, 255, 255, 0.015) 81px);
+    }
+
+    .hero-accent {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, transparent, var(--red), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 5% 8%;
+      max-width: 780px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 7px 16px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 12vw, 9.5rem);
+      line-height: 0.88;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .red {
+      color: var(--red);
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--silver-dark);
+      line-height: 1.85;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      text-decoration: none;
+      padding: 16px 36px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: 2px solid var(--red);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--red);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      padding: 16px 36px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--white);
+    }
+
+    .hero-stats {
+      position: static;
+      display: flex;
+      gap: 3rem;
+      z-index: 2;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-top: 5px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-header {
+      margin-bottom: 65px;
+    }
+
+    .section-tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--white);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    .section-line {
+      width: 60px;
+      height: 3px;
+      background: var(--red);
+      margin-top: 18px;
+    }
+
+    /* SERVICES */
+    #hizmetler {
+      background: var(--dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--dark2);
+      padding: 44px 34px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      background: var(--dark3);
+      transform: translateY(-5px);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      margin-bottom: 22px;
+      display: block;
+    }
+
+    .service-num {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.04);
+      line-height: 1;
+    }
+
+    .service-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .service-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--silver-dark);
+    }
+
+    .service-features {
+      margin-top: 22px;
+      list-style: none;
+    }
+
+    .service-features li {
+      font-size: 0.92rem;
+      color: var(--silver-dark);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-features li::before {
+      content: '▸';
+      color: var(--red);
+      font-size: 0.75rem;
+    }
+
+    /* GALLERY - LIGHTBOX STYLE */
+    #galeri {
+      background: var(--black);
+    }
+
+    .gallery-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--silver-dark);
+      padding: 10px 22px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: white;
+    }
+
+    /* MASONRY-STYLE GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 280px;
+      gap: 6px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--dark2);
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.82);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.07);
+      filter: brightness(1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .gallery-tag {
+      font-size: 0.75rem;
+      color: var(--red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .gallery-zoom {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(204, 0, 0, 0.85);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-zoom {
+      opacity: 1;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -48px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(204, 0, 0, 0.8);
+      border: none;
+      color: white;
+      width: 48px;
+      height: 48px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .lightbox-prev {
+      left: -60px;
+    }
+
+    .lightbox-next {
+      right: -60px;
+    }
+
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: var(--red-dark);
+    }
+
+    .lightbox-caption {
+      color: var(--silver-dark);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* WHY US */
+    #neden-biz {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #neden-biz::before {
+      content: 'TOLGA';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18vw;
+      color: rgba(255, 255, 255, 0.025);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 44px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-item {
+      border-left: 3px solid var(--red);
+      padding-left: 26px;
+    }
+
+    .feature-icon {
+      font-size: 2.3rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--silver-dark);
+    }
+
+    /* CONTACT */
+    #iletisim {
+      background: var(--black);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 22px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.3s;
+    }
+
+    .contact-card:first-child {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .contact-card.clickable {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .contact-card.clickable:hover {
+      background: rgba(204, 0, 0, 0.07);
+    }
+
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+
+    .contact-detail h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 6px;
+    }
+
+    .contact-detail p,
+    .contact-detail .val {
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.6;
+      text-decoration: none;
+      display: block;
+    }
+
+    .contact-detail small {
+      font-size: 0.78rem;
+      color: var(--silver-dark);
+      letter-spacing: 1px;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .social-btn.instagram {
+      border-color: #c13584;
+    }
+
+    .social-btn.instagram:hover {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+      border-color: transparent;
+    }
+
+    .social-btn.whatsapp {
+      border-color: #25D366;
+    }
+
+    .social-btn.whatsapp:hover {
+      background: #25D366;
+      color: white;
+      border-color: #25D366;
+    }
+
+    /* MAP - FULL WIDTH */
+    .map-section {
+      position: relative;
+    }
+
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      border: 2px solid rgba(204, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+
+    .map-badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background: var(--red);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 18px;
+    }
+
+    .map-open-btn {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      z-index: 10;
+      background: var(--red);
+      color: white;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .map-open-btn:hover {
+      background: var(--red-dark);
+    }
+
+    .map-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-box {
+      background: var(--dark2);
+      border-top: 3px solid var(--red);
+      padding: 30px;
+    }
+
+    .info-box-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .whatsapp-big {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #128c4a;
+      padding: 20px 24px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .whatsapp-big:hover {
+      background: #0d6e39;
+    }
+
+    .whatsapp-big-icon {
+      font-size: 2rem;
+    }
+
+    .whatsapp-big-text strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: white;
+    }
+
+    .whatsapp-big-text small {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.12);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(204, 0, 0, 0.3);
+      padding: 44px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      color: var(--white);
+      letter-spacing: 3px;
+    }
+
+    .footer-logo span {
+      color: var(--red);
+    }
+
+    .footer-copy {
+      font-size: 0.88rem;
+      color: var(--silver-dark);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--silver-dark);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .footer-social a:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .lightbox-prev {
+        left: 0;
+      }
+
+      .lightbox-next {
+        right: 0;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-stats {
+        position: static;
+        margin-top: 40px;
+        justify-content: flex-start;
+        gap: 2rem;
+      }
+
+      #hero {
+        flex-direction: column;
+        padding-top: 75px;
+      }
+
+      .hero-content {
+        padding: 10% 6% 5%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 240px;
+      }
+
+      .gallery-item.wide {
+        grid-column: span 1;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 1;
+      }
+
+      section {
+        padding: 70px 6%;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 260px;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .social-row {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">TOLGA <span>OTO BOYA</span></div>
+    <ul class="nav-links">
+      <li><a href="#hizmetler">Hizmetler</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#neden-biz">Neden Biz</a></li>
+      <li><a href="#iletisim" class="nav-cta">İletişim</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hizmetler" onclick="closeMobile()">Hizmetler</a>
+    <a href="#galeri" onclick="closeMobile()">Galeri</a>
+    <a href="#video" onclick="closeMobile()">Video</a>
+    <a href="#neden-biz" onclick="closeMobile()">Neden Biz</a>
+    <a href="#iletisim" onclick="closeMobile()">İletişim</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Profesyonel Araç Boyama &amp; Detay</div>
+      <h1 class="hero-title">TOLGA<br><span class="red">OTO</span><br>BOYA</h1>
+      <p class="hero-sub">Aracınız profesyonel ellerde yeniden doğuyor. Yılların deneyimiyle pasta cila, boya koruma,
+        far temizleme ve oto boyada en yüksek kalite standartlarını sunuyoruz.</p>
+      <div class="hero-buttons">
+        <a href="#iletisim" class="btn-primary">Bize Ulaşın</a>
+        <a href="#galeri" class="btn-secondary">Çalışmalarımız</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Mutlu Müşteri</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Yıl Deneyim</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">%100</div>
+          <div class="stat-label">Memnuniyet</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section id="video" style="background:var(--dark);padding:80px 8%;">
+    <div class="section-header reveal">
+      <div class="section-tag">Bizi Tanıyın</div>
+      <h2 class="section-title">TANITIM <span>VİDEOSU</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+      <div style="position:relative;border-radius:4px;border:2px solid rgba(204,0,0,0.4);overflow:hidden;background:#000;">
+        <video
+          controls
+          muted
+          preload="metadata"
+          style="width:100%;display:block;max-height:480px;object-fit:cover;"
+        >
+          <source src="videos/tanitim-video-2.mp4" type="video/mp4">
+          <source src="videos/tanitim-video-1.mp4" type="video/mp4">
+          Tarayıcınız video etiketini desteklemiyor.
+        </video>
+      </div>
+      <div style="color:var(--text);">
+        <div class="section-tag" style="margin-bottom:16px">Profesyonel Oto Boya Hizmetleri</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);letter-spacing:2px;margin-bottom:18px;line-height:1.1;">ARACINI­ZI <span style="color:var(--red);">YENİLİYORUZ</span></h3>
+        <p style="font-size:1rem;line-height:1.85;color:#999;margin-bottom:24px;">10 yılı aşkın deneyimimizle her araç için en yüksek kalite standartlarını uyguluyoruz. Tanıtım videomuzu izleyerek atölyemizi ve çalışma sürecimizi yakından tanıyabilirsiniz.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--red);font-size:1.2rem;">✓</span><span>Fabrika kalitesinde boya uygulaması</span></div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--red);font-size:1.2rem;">✓</span><span>Seramik & PPF koruma sistemleri</span></div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--red);font-size:1.2rem;">✓</span><span>Profesyonel pasta-cila & far temizleme</span></div>
+          <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--red);font-size:1.2rem;">✓</span><span>Söz verilen sürede, garanti ile teslimat</span></div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @media(max-width:768px){#video .reveal>div:first-child,#video .reveal>div:last-child{grid-column:1/-1;}#video .reveal{grid-template-columns:1fr!important;}}
+    </style>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="hizmetler">
+    <div class="section-header reveal">
+      <div class="section-tag">Ne Yapıyoruz</div>
+      <h2 class="section-title">HİZMET<span>LERİMİZ</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span><span class="service-icon">🎨</span>
+        <div class="service-title">Oto Boya</div>
+        <p class="service-desc">Orijinal fabrika kalitesinde boya uygulaması. Kaza, çizik ve yıpranma sonrası aracınızı
+          sıfır haline getiriyoruz.</p>
+        <ul class="service-features">
+          <li>Tam karoser boya</li>
+          <li>Parça boya (kaput, kapı, tampon)</li>
+          <li>Kaporta düzleştirme</li>
+          <li>Orijinal renk eşleştirme</li>
+          <li>UV dayanımlı boya</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">02</span><span class="service-icon">🛡️</span>
+        <div class="service-title">Boya Koruma</div>
+        <p class="service-desc">Seramik kaplama ve PPF (Boya Koruma Filmi) ile aracınızın boyasını çevre etkenlerine
+          karşı koruma altına alıyoruz.</p>
+        <ul class="service-features">
+          <li>Seramik kaplama</li>
+          <li>PPF boya koruma filmi</li>
+          <li>Nano teknoloji koruma</li>
+          <li>UV &amp; asit yağmur koruması</li>
+          <li>Uzun süreli parlaklık</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">03</span><span class="service-icon">✨</span>
+        <div class="service-title">Pasta Cila</div>
+        <p class="service-desc">Profesyonel pasta ve cila uygulamasıyla ayna parlaklığına ulaşılır, swirl çizikler
+          giderilir.</p>
+        <ul class="service-features">
+          <li>Makine pastası</li>
+          <li>Tek &amp; çift aşamalı polish</li>
+          <li>Swirl çizik giderme</li>
+          <li>Koruyucu cila kaplama</li>
+          <li>İç-dış detay temizlik</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">04</span><span class="service-icon">💡</span>
+        <div class="service-title">Far Temizleme</div>
+        <p class="service-desc">Sararmış ve mat hale gelmiş farları profesyonel yöntemlerle şeffaf ve parlak hale
+          getiriyoruz.</p>
+        <ul class="service-features">
+          <li>Mekanik zımpara &amp; polish</li>
+          <li>UV kaplama ile koruma</li>
+          <li>Sararma giderme</li>
+          <li>Far parlatma</li>
+          <li>Uzun süreli şeffaflık</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="galeri">
+    <div class="section-header reveal">
+      <div class="section-tag">Referanslarımız</div>
+      <h2 class="section-title">ÇALIŞMA<span>LARIMIZ</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="gallery-filter reveal">
+      <button class="filter-btn active" data-filter="all">Tümü</button>
+      <button class="filter-btn" data-filter="oto-boya">Oto Boya</button>
+      <button class="filter-btn" data-filter="pasta-cila">Pasta Cila</button>
+      <button class="filter-btn" data-filter="boya-koruma">Boya Koruma</button>
+      <button class="filter-btn" data-filter="far-temizleme">Far Temizleme</button>
+    </div>
+    
+            <div class="gallery-grid">
+
+      <div class="gallery-item tall reveal" data-category="pasta-cila" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-01.jpeg" alt="Pasta Cila Çalışması" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Pasta Cila</span>
+            <div class="gallery-label">Pasta Cila — Ayna Parlaklığı</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="pasta-cila" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-02.jpeg" alt="Pasta Cila Detay" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Pasta Cila</span>
+            <div class="gallery-label">Pasta Cila — Derin Detay</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="oto-boya" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-03.jpeg" alt="Oto Boya Karoser" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Oto Boya</span>
+            <div class="gallery-label">Oto Boya — Tam Karoser</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="oto-boya" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-04.jpeg" alt="Oto Boya Kapı Boya" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Oto Boya</span>
+            <div class="gallery-label">Oto Boya — Kapı & Tampon</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item wide reveal" data-category="boya-koruma" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-05.jpeg" alt="Boya Koruma PPF" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Boya Koruma</span>
+            <div class="gallery-label">Boya Koruma — PPF Uygulama</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="boya-koruma" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-06.jpeg" alt="Boya Koruma Seramik" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Boya Koruma</span>
+            <div class="gallery-label">Boya Koruma — Seramik</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="far-temizleme" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-08.jpeg" alt="Far Parlatma Sonucu" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Far Temizleme</span>
+            <div class="gallery-label">Far Parlatma — Sonuç</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="pasta-cila" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-09.jpeg" alt="Pasta Cila Atölye" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Pasta Cila</span>
+            <div class="gallery-label">Pasta Cila — Atölye</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item tall reveal" data-category="oto-boya" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-10.jpeg" alt="Oto Boya Tam Karoser" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Oto Boya</span>
+            <div class="gallery-label">Oto Boya — Tam Araç</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="oto-boya" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-11.jpeg" alt="Oto Boya Detay" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Oto Boya</span>
+            <div class="gallery-label">Oto Boya — Detay İşlem</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="boya-koruma" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-12.jpeg" alt="Boya Koruma Uygulama" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Boya Koruma</span>
+            <div class="gallery-label">Boya Koruma — PPF Detay</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item wide reveal" data-category="far-temizleme" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-13.jpeg" alt="Far Temizleme Öncesi Sonrası" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Far Temizleme</span>
+            <div class="gallery-label">Far Temizleme — Öncesi / Sonrası</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="oto-boya" onclick="openLightboxSrc(this)">
+        <img src="images/galeri-19.jpeg" alt="Oto Boya Kaput" loading="lazy">
+        <div class="gallery-overlay">
+          <div><span class="gallery-tag">Oto Boya</span>
+            <div class="gallery-label">Oto Boya — Kaput Boya</div>
+          </div>
+        </div>
+        <div class="gallery-zoom">🔍</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <button class="lightbox-prev" onclick="prevImg()">←</button>
+      <img id="lightboxImg" src="" alt="">
+      <button class="lightbox-next" onclick="nextImg()">→</button>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- WHY US -->
+  <section id="neden-biz">
+    <div class="section-header reveal">
+      <div class="section-tag">Fark Yaratan</div>
+      <h2 class="section-title">NEDEN <span>BİZ?</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item reveal"><span class="feature-icon">🏆</span>
+        <div class="feature-title">10+ Yıl Deneyim</div>
+        <p class="feature-desc">Yılların biriktirdiği deneyim ve uzmanlıkla her araca özel çözüm üretiyoruz.</p>
+      </div>
+      <div class="feature-item reveal"><span class="feature-icon">🔬</span>
+        <div class="feature-title">Profesyonel Ekipman</div>
+        <p class="feature-desc">Son teknoloji boya kabinleri ve profesyonel makine parkuruyla fabrika kalitesi
+          sunuyoruz.</p>
+      </div>
+      <div class="feature-item reveal"><span class="feature-icon">🎯</span>
+        <div class="feature-title">Renk Garantisi</div>
+        <p class="feature-desc">Bilgisayar destekli renk eşleştirme sistemiyle orijinal fabrika rengini tutturuyoruz.
+        </p>
+      </div>
+      <div class="feature-item reveal"><span class="feature-icon">⚡</span>
+        <div class="feature-title">Hızlı Teslimat</div>
+        <p class="feature-desc">Zamanınızın değerini biliyoruz. Söz verilen sürede, söz verilen kalitede teslim.</p>
+      </div>
+      <div class="feature-item reveal"><span class="feature-icon">💎</span>
+        <div class="feature-title">Kalite Güvencesi</div>
+        <p class="feature-desc">Her işlemde premium malzeme kullanıyoruz. Memnuniyetiniz bizim önceliğimiz.</p>
+      </div>
+      <div class="feature-item reveal"><span class="feature-icon">📍</span>
+        <div class="feature-title">Aydın 3. Sanayi</div>
+        <p class="feature-desc">Kolay ulaşılabilir konumumuzda, geniş atölyemizde hizmetinizdeyiz.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="iletisim">
+    <div class="section-header reveal">
+      <div class="section-tag">Bize Ulaşın</div>
+      <h2 class="section-title">İLETİ<span>ŞİM</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-layout">
+
+      <!-- LEFT: contact cards -->
+      <div class="reveal">
+        <div class="contact-cards">
+
+          <a class="contact-card clickable" rel="noopener noreferrer"
+            href="https://maps.google.com/?q=3.+Sanayi+Zeybek+1518.+Sk.+No:15+Efeler+Aydin" target="_blank">
+            <div class="contact-icon">📍</div>
+            <div class="contact-detail">
+              <h4>Adres — Yol Tarifi Al</h4>
+              <span class="val">3.Sanayi, Zeybek, 1518. Sk. No:15<br>09100 Efeler / Aydın</span>
+              <small>↗ Google Maps'te aç</small>
+            </div>
+          </a>
+
+          <a class="contact-card clickable" href="tel:+905059688509">
+            <div class="contact-icon">📞</div>
+            <div class="contact-detail">
+              <h4>Telefon</h4>
+              <span class="val">0505 968 85 09</span>
+            </div>
+          </a>
+
+          <a class="contact-card clickable"
+            href="https://wa.me/905059688509?text=Merhaba%2C%20Tolga%20Oto%20Boya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+            rel="noopener noreferrer" target="_blank">
+            <div class="contact-icon" style="background:#25D366">💬</div>
+            <div class="contact-detail">
+              <h4>WhatsApp</h4>
+              <span class="val">Mesaj Gönder</span>
+            </div>
+          </a>
+
+          <div class="contact-card">
+            <div class="contact-icon">🕐</div>
+            <div class="contact-detail">
+              <h4>Çalışma Saatleri</h4>
+              <span class="val">Pzt – Cmt: 08:30 – 19:00</span>
+              <small>Pazar: Kapalı</small>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Social -->
+        <div class="social-row" style="margin-top:28px">
+          <a href="https://www.instagram.com/tolga.camoglu" target="_blank" rel="noopener noreferrer"
+            class="social-btn instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+            Instagram'da Takip Et
+          </a>
+          <a href="https://wa.me/905059688509" rel="noopener noreferrer" target="_blank" class="social-btn whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.948-1.42A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm5.07 13.6c-.21.59-1.24 1.15-1.71 1.22-.47.07-.92.1-3-.84-2.52-1.13-4.14-3.7-4.27-3.87-.12-.17-.98-1.3-.98-2.49 0-1.18.62-1.77.84-2.02.21-.24.47-.3.63-.3h.44c.15 0 .35-.01.54.42.21.47.73 1.79.8 1.93.07.13.11.29.02.47-.1.18-.15.29-.3.45-.15.16-.31.35-.44.47-.14.13-.29.27-.12.54.17.27.75 1.23 1.61 1.99 1.1.98 2.03 1.28 2.32 1.42.29.14.45.12.62-.07.17-.19.73-.85.93-1.14.2-.29.4-.24.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.34.07.12.07.7-.14 1.28z"/>
+            </svg>
+            WhatsApp'tan Yaz
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: map -->
+      <div class="reveal">
+        <div class="map-wrapper">
+          <div class="map-badge">📍 Konumumuz</div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.5!2d27.8451!3d37.8441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b921a4c0b7b1e7%3A0x1!2zM8K3U2FuYXlpLCBaZXliZWssIDE1MTguIFNrLiBObzoxNSwgMDkxMDAgRWZlbGVyL0F5ZMSxbg!5e0!3m2!1str!2str!4v1714000000000!5m2!1str!2str"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tolga Oto Boya Konum">
+          </iframe>
+          <a class="map-open-btn" rel="noopener noreferrer"
+            href="https://maps.google.com/?q=3.+Sanayi+Zeybek+1518.+Sk.+No:15+Efeler+Aydin" target="_blank">
+            🗺️ Yol Tarifi Al
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">TOLGA <span>OTO BOYA</span></div>
+    <div class="footer-copy">© 2025 Tolga Oto Boya — 3.Sanayi, Efeler / Aydın</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/tolga.camoglu" target="_blank" rel="noopener noreferrer" title="Instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/905059688509" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.948-1.42A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm5.07 13.6c-.21.59-1.24 1.15-1.71 1.22-.47.07-.92.1-3-.84-2.52-1.13-4.14-3.7-4.27-3.87-.12-.17-.98-1.3-.98-2.49 0-1.18.62-1.77.84-2.02.21-.24.47-.3.63-.3h.44c.15 0 .35-.01.54.42.21.47.73 1.79.8 1.93.07.13.11.29.02.47-.1.18-.15.29-.3.45-.15.16-.31.35-.44.47-.14.13-.29.27-.12.54.17.27.75 1.23 1.61 1.99 1.1.98 2.03 1.28 2.32 1.42.29.14.45.12.62-.07.17-.19.73-.85.93-1.14.2-.29.4-.24.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.34.07.12.07.7-.14 1.28z"/>
+        </svg>
+      </a>
+      <a href="tel:+905059688509" title="Telefon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- DEVELOPER CREDIT -->
+  <div style="background:#050505;border-top:1px solid rgba(255,255,255,0.06);padding:14px 8%;display:flex;align-items:center;justify-content:center;gap:10px;">
+    <span style="color:#444;font-size:0.78rem;letter-spacing:1px;">Developed by</span>
+    <a href="https://github.com/MuratEfeCamoglu" target="_blank" rel="noopener noreferrer"
+      style="display:inline-flex;align-items:center;gap:7px;color:#aaa;text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.5px;transition:color 0.25s;"
+      onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+      </svg>
+      MuratEfeCamoglu
+    </a>
+  </div>
+
+  <!-- FLOATING INSTAGRAM -->
+  <a href="https://www.instagram.com/tolga.camoglu" class="instagram-float" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+    </svg>
+  </a>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/905059688509" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.948-1.42A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm5.07 13.6c-.21.59-1.24 1.15-1.71 1.22-.47.07-.92.1-3-.84-2.52-1.13-4.14-3.7-4.27-3.87-.12-.17-.98-1.3-.98-2.49 0-1.18.62-1.77.84-2.02.21-.24.47-.3.63-.3h.44c.15 0 .35-.01.54.42.21.47.73 1.79.8 1.93.07.13.11.29.02.47-.1.18-.15.29-.3.45-.15.16-.31.35-.44.47-.14.13-.29.27-.12.54.17.27.75 1.23 1.61 1.99 1.1.98 2.03 1.28 2.32 1.42.29.14.45.12.62-.07.17-.19.73-.85.93-1.14.2-.29.4-.24.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.34.07.12.07.7-.14 1.28z"/>
+    </svg>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" aria-label="Yukarı çık" title="Yukarıya dön"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="18 15 12 9 6 15" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <style>
+    #backToTop {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      right: auto;
+      z-index: 998;
+      background: rgba(30,30,30,0.92);
+      border: 1.5px solid rgba(204,0,0,0.5);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.35s, transform 0.35s, background 0.25s;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+
+    .instagram-float {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      z-index: 999;
+      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(131,58,180,0.4);
+      transition: transform 0.3s;
+    }
+    .instagram-float:hover {
+      transform: scale(1.12);
+    }
+    #backToTop.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #backToTop:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+  </style>
+
+  <script>
+    // NAV — hamburger + scroll
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      const s = hamburger.querySelectorAll('span');
+      if (open) { s[0].style.transform='rotate(45deg) translate(5px,5px)'; s[1].style.opacity='0'; s[2].style.transform='rotate(-45deg) translate(5px,-5px)'; }
+      else { s[0].style.transform=''; s[1].style.opacity=''; s[2].style.transform=''; }
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';});
+    }
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.background = window.scrollY > 50 ? 'rgba(10,10,10,0.99)' : 'rgba(10,10,10,0.94)';
+    }, {passive:true});
+
+    // SCROLL REVEAL
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // GALLERY FILTER — data-category based
+    const allItems = document.querySelectorAll('.gallery-item');
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        allItems.forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // LIGHTBOX
+    let currentIdx = 0;
+
+    function getVisibleImgs() {
+      return [...document.querySelectorAll('.gallery-item')]
+        .filter(i => i.style.display !== 'none')
+        .map(i => i.querySelector('img'));
+    }
+
+    // Tıklanan öğenin kendi img'ini kullanarak lightbox açar
+    function openLightboxSrc(itemEl) {
+      const imgs = getVisibleImgs();
+      const clickedImg = itemEl.querySelector('img');
+      const idx = imgs.indexOf(clickedImg);
+      currentIdx = idx >= 0 ? idx : 0;
+      document.getElementById('lightboxImg').src = clickedImg.src;
+      document.getElementById('lightboxCaption').textContent = clickedImg.alt;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Geriye dönük uyumluluk için (kullanılmıyor ama bırakıldı)
+    function openLightbox(idx) {
+      const imgs = getVisibleImgs();
+      const img = imgs[idx];
+      if (!img) return;
+      currentIdx = idx;
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightboxCaption').textContent = img.alt;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function closeLightboxOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+    function prevImg() {
+      const imgs = getVisibleImgs();
+      currentIdx = (currentIdx - 1 + imgs.length) % imgs.length;
+      document.getElementById('lightboxImg').src = imgs[currentIdx].src;
+      document.getElementById('lightboxCaption').textContent = imgs[currentIdx].alt;
+    }
+    function nextImg() {
+      const imgs = getVisibleImgs();
+      currentIdx = (currentIdx + 1) % imgs.length;
+      document.getElementById('lightboxImg').src = imgs[currentIdx].src;
+      document.getElementById('lightboxCaption').textContent = imgs[currentIdx].alt;
+    }
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImg();
+      if (e.key === 'ArrowRight') nextImg();
+    });
+
+    // Touch swipe for lightbox
+    let touchStartX = 0;
+    document.getElementById('lightbox').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+    document.getElementById('lightbox').addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) dx < 0 ? nextImg() : prevImg();
+    }, {passive:true});
+
+    // BACK TO TOP
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, {passive: true});
+  </script>
+</body>
+
+</html>
