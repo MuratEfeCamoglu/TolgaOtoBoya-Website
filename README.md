@@ -9,17 +9,20 @@
 [![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://fonts.google.com/)
 [![Google Maps](https://img.shields.io/badge/Google_Maps-4285F4?style=for-the-badge&logo=google-maps&logoColor=white)](https://maps.google.com)
 
+![Tolga Oto Boya — Ana sayfa](docs/screenshots/01-hero.jpg)
+
 ---
 
 ## 📋 İçindekiler
 
 - [Proje Hakkında](#-proje-hakkında)
+- [Uygulama Turu](#-uygulama-turu)
+- [Mobil Görünüm](#-mobil-görünüm)
 - [Özellikler](#-özellikler)
-- [Teknolojiler](#-teknolojiler)
+- [Teknolojiler](#️-teknolojiler)
 - [Proje Yapısı](#-proje-yapısı)
-- [Hizmetler](#-hizmetler)
-- [Sayfa Bölümleri](#-sayfa-bölümleri)
 - [Kurulum](#-kurulum)
+- [Galeriye Yeni Fotoğraf Ekleme](#️-galeriye-yeni-fotoğraf-ekleme)
 - [İletişim & Sosyal Medya](#-iletişim--sosyal-medya)
 - [Geliştirici](#-geliştirici)
 
@@ -27,9 +30,87 @@
 
 ## 📌 Proje Hakkında
 
-**Tolga Oto Boya**, 10+ yıllık deneyimiyle Aydın'da profesyonel araç boyama ve oto detay hizmetleri sunan bir atölyenin kurumsal tanıtım sitesidir. Site; sunulan hizmetleri, gerçek iş fotoğraflarını (13+ galeri görseli), atölye tanıtım videosunu ve doğrudan iletişim kanallarını modern bir tasarımla bir araya getirmektedir.
+**Tolga Oto Boya**, 10+ yıllık deneyimiyle Aydın'da profesyonel araç boyama ve oto detay hizmetleri sunan bir atölyenin kurumsal tanıtım sitesidir. Site; sunulan hizmetleri, atölyede yapılmış gerçek işlerin fotoğraflarını, tanıtım videosunu ve doğrudan iletişim kanallarını tek sayfada bir araya getirir.
 
-Herhangi bir framework veya build aracı **gerektirmez** — tamamen saf HTML, CSS ve JavaScript ile geliştirilmiştir. Mobil, tablet ve masaüstü cihazlarda eksiksiz çalışır.
+Herhangi bir framework veya build aracı **gerektirmez** — tamamen saf HTML, CSS ve JavaScript ile, tek bir `index.html` dosyasında geliştirilmiştir. Mobil, tablet ve masaüstü cihazlarda eksiksiz çalışır.
+
+---
+
+## 🧭 Uygulama Turu
+
+Ziyaretçinin sayfayı yukarıdan aşağıya kaydırırken gördüğü bölümler:
+
+### 1. Karşılama (Hero) — `#hero`
+
+Sayfa açıldığında ziyaretçiyi büyük **TOLGA OTO BOYA** başlığı, kısa bir tanıtım metni ve iki eylem butonu karşılar: **Bize Ulaşın** doğrudan iletişim bölümüne, **Çalışmalarımız** galeriye kaydırır. Altında *500+ Mutlu Müşteri · 10+ Yıl Deneyim · %100 Memnuniyet* istatistikleri yer alır. Üstteki sabit menü, sayfa boyunca her bölüme tek tıkla ulaşmayı sağlar.
+
+### 2. Tanıtım Videosu — `#video`
+
+Atölyenin tanıtım videosu, sitenin kendi video oynatıcısıyla oynatılır (ek eklenti gerekmez). Yanında atölyenin öne çıkan dört vaadi listelenir.
+
+![Tanıtım videosu bölümü](docs/screenshots/02-video.jpg)
+
+### 3. Hizmetlerimiz — `#hizmetler`
+
+Atölyenin dört ana hizmeti kartlar halinde anlatılır. Her kart kısa bir açıklama ve o hizmetin kapsamındaki işlemleri içerir.
+
+![Hizmetler bölümü](docs/screenshots/03-hizmetler.jpg)
+
+| # | Hizmet | Öne Çıkan Detaylar |
+|---|--------|--------------------|
+| 01 | **Oto Boya** | Tam karoser & parça boya, kaporta düzleştirme, orijinal renk eşleştirme, UV dayanımlı boya |
+| 02 | **Boya Koruma** | Seramik kaplama, PPF (Boya Koruma Filmi), nano teknoloji koruma, UV & asit yağmur koruması |
+| 03 | **Pasta Cila** | Makine pastası, tek & çift aşamalı polish, swirl çizik giderme, iç-dış detay temizlik |
+| 04 | **Far Temizleme** | Mekanik zımpara & polish, UV kaplama ile koruma, sararma giderme, uzun süreli şeffaflık |
+
+### 4. Çalışmalarımız (Galeri) — `#galeri`
+
+Atölyede yapılmış gerçek işlerin fotoğrafları. Üstteki butonlarla galeri **hizmet türüne göre filtrelenir**: Tümü, Oto Boya, Pasta Cila, Boya Koruma, Far Temizleme.
+
+| Tüm çalışmalar | "Far Temizleme" filtresi seçili |
+|:---:|:---:|
+| ![Galeri — tümü](docs/screenshots/04-galeri.jpg) | ![Galeri — far temizleme filtresi](docs/screenshots/05-galeri-filtre.jpg) |
+
+Bir fotoğrafa tıklandığında **tam ekran görüntüleyici (lightbox)** açılır. Burada:
+
+- `←` / `→` butonları veya klavye ok tuşlarıyla fotoğraflar arasında geçiş yapılır (yalnızca seçili filtredeki fotoğraflar arasında),
+- mobilde parmakla sağa/sola kaydırılır,
+- `Esc` tuşu, `✕` butonu veya fotoğrafın dışına tıklama ile kapatılır.
+
+![Lightbox görüntüleyici](docs/screenshots/06-lightbox.jpg)
+
+### 5. Neden Biz? — `#neden-biz`
+
+Atölyeyi rakiplerinden ayıran altı özellik: deneyim, profesyonel ekipman, renk garantisi, hızlı teslimat, kalite güvencesi ve kolay ulaşılabilir konum.
+
+![Neden Biz bölümü](docs/screenshots/07-neden-biz.jpg)
+
+### 6. İletişim — `#iletisim`
+
+Müşterinin atölyeye ulaşması için gereken her şey tek yerde:
+
+- **Adres** kartı Google Maps'te yol tarifini açar,
+- **Telefon** kartı mobilde doğrudan arama başlatır,
+- **WhatsApp** kartı hazır bir mesajla ("Merhaba, Tolga Oto Boya hakkında bilgi almak istiyorum.") sohbet açar,
+- çalışma saatleri, Instagram / WhatsApp butonları ve gömülü **Google Haritası** yer alır.
+
+![İletişim bölümü](docs/screenshots/08-iletisim.jpg)
+
+### 7. Alt Bilgi (Footer)
+
+Logo, adres, sosyal medya kısayolları ve telif satırı (yıl otomatik güncellenir). Sayfa boyunca sağ altta sabit **Instagram** ve **WhatsApp** butonları, 400px kaydırmadan sonra sol altta **Yukarı Dön** butonu görünür.
+
+![Footer](docs/screenshots/09-footer.jpg)
+
+---
+
+## 📱 Mobil Görünüm
+
+Site telefon ekranlarına göre yeniden düzenlenir: üst menü **hamburger menüye** dönüşür, kartlar ve galeri tek sütuna iner.
+
+| Ana sayfa | Açık menü | Galeri |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/10-mobil-hero.jpg" width="240" alt="Mobil ana sayfa"> | <img src="docs/screenshots/11-mobil-menu.jpg" width="240" alt="Mobil menü"> | <img src="docs/screenshots/12-mobil-galeri.jpg" width="240" alt="Mobil galeri"> |
 
 ---
 
@@ -41,27 +122,26 @@ Herhangi bir framework veya build aracı **gerektirmez** — tamamen saf HTML, C
 | 📱 **Tam Responsive** | Mobil (≤600px), tablet (≤900px) ve masaüstü için CSS Grid & Flexbox |
 | 🖼️ **Lightbox Galeri** | Kategori filtrelemeli, klavye & dokunmatik kaydırma destekli |
 | 🎬 **Video Bölümü** | Atölye tanıtım videosu gömülü `<video>` oynatıcı ile |
-| 📊 **Animasyonlu Sayaçlar** | Scroll ile tetiklenen `requestAnimationFrame` tabanlı sayaç |
-| 🍔 **Hamburger Menü** | Mobil için animasyonlu açılır navigasyon menüsü |
-| 👁️ **Scroll Reveal** | `IntersectionObserver` ile sayfa kaydırmasında beliren elementler |
-| ⬆️ **Yukarı Dön Butonu** | 400px scroll sonrası görünen, sol alt köşede sabit buton |
+| 🍔 **Hamburger Menü** | Mobil için animasyonlu açılır menü (`Esc` ile kapanır) |
+| 👁️ **Scroll Reveal** | `IntersectionObserver` ile kaydırıldıkça beliren bölümler |
+| ⬆️ **Yukarı Dön Butonu** | 400px kaydırma sonrası görünen, sol alt köşede sabit buton |
 | 📍 **Google Maps** | Atölye konumu gömülü harita ile (Efeler/Aydın) |
 | 💬 **WhatsApp Hızlı Mesaj** | Hazır mesaj metniyle doğrudan WhatsApp sohbeti açar |
-| 📸 **Floating Instagram** | Sağ alt köşede sabit Instagram butonu |
-| ⌨️ **Klavye Erişilebilirliği** | Lightbox `Escape`, `←`, `→` kısayol tuşlarını destekler |
+| 📸 **Floating Instagram & WhatsApp** | Sağ alt köşede sabit sosyal medya butonları |
+| ⌨️ **Klavye Erişilebilirliği** | Galeri öğeleri `Enter`/`Space` ile açılır; lightbox `Esc`, `←`, `→` destekler |
 
 ---
 
 ## 🛠️ Teknolojiler
 
-| Teknoloji | Sürüm / Detay | Kullanım Amacı |
-|-----------|---------------|----------------|
+| Teknoloji | Detay | Kullanım Amacı |
+|-----------|-------|----------------|
 | **HTML5** | Semantic — `<section>`, `<nav>`, `<footer>` | Sayfa yapısı, SEO, erişilebilirlik |
-| **CSS3** | Vanilla CSS (CSS Grid, Flexbox, Custom Properties) | Tüm stiller, animasyonlar, responsive |
-| **JavaScript** | ES6+ (arrow fn, `const/let`, optional chaining) | Galeri, lightbox, menü, sayaç, reveal |
+| **CSS3** | Vanilla CSS (Grid, Flexbox, Custom Properties) | Tüm stiller, animasyonlar, responsive |
+| **JavaScript** | ES6+ | Galeri, lightbox, menü, reveal |
 | **Google Fonts** | Bebas Neue · Barlow · Barlow Condensed | Başlık ve gövde tipografisi |
-| **Google Maps Embed** | iframe embed API | Konum haritası |
-| **IntersectionObserver API** | Native browser API | Scroll reveal + sayaç animasyonu |
+| **Google Maps Embed** | iframe | Konum haritası |
+| **IntersectionObserver API** | Native browser API | Scroll reveal |
 | **Touch Events API** | Native browser API | Lightbox'ta mobil kaydırma (swipe) |
 
 ---
@@ -72,67 +152,15 @@ Herhangi bir framework veya build aracı **gerektirmez** — tamamen saf HTML, C
 TolgaOtoBoya-Website/
 │
 ├── index.html              # Ana sayfa — tüm HTML yapısı + inline CSS + JS
-├── style.css               # Harici yardımcı stiller
-├── main.js                 # Harici JS (scroll progress, nav, galeri, lightbox)
 │
-├── images/                 # Galeri görselleri (13 adet .jpeg)
-│   ├── galeri-01.jpeg      # Pasta Cila — Ayna Parlaklığı
-│   ├── galeri-02.jpeg      # Pasta Cila — Derin Detay
-│   ├── galeri-03.jpeg      # Oto Boya — Tam Karoser
-│   ├── galeri-04.jpeg      # Oto Boya — Kapı & Tampon
-│   ├── galeri-05.jpeg      # Boya Koruma — PPF Uygulama (geniş)
-│   ├── galeri-06.jpeg      # Boya Koruma — Seramik
-│   ├── galeri-08.jpeg      # Far Temizleme — Sonuç
-│   ├── galeri-09.jpeg      # Pasta Cila — Atölye
-│   ├── galeri-10.jpeg      # Oto Boya — Tam Araç (uzun)
-│   ├── galeri-11.jpeg      # Oto Boya — Detay İşlem
-│   ├── galeri-12.jpeg      # Boya Koruma — PPF Detay
-│   ├── galeri-13.jpeg      # Far Temizleme — Öncesi/Sonrası (geniş)
-│   └── galeri-19.jpeg      # Oto Boya — Kaput Boya
-│
+├── images/                 # Galeri ve ek görseller (.jpeg)
 ├── videos/                 # Atölye tanıtım videoları
 │   ├── tanitim-video-1.mp4 # Yedek kaynak
 │   └── tanitim-video-2.mp4 # Ana kaynak (öncelikli)
 │
-├── Resimler/               # Ham / kaynak görseller (yerel)
-├── tolga oto boya.txt      # Proje istek notları
-│
-│   ── Yardımcı Python Scriptleri ──
-├── check_far.py
-├── copy_media.py
-├── expand_gallery.py
-├── extract_images.py
-├── fix_gallery.py
-├── fix_video_gallery.py
-├── update_html_media.py
-└── verify.py
+├── docs/screenshots/       # README'deki ekran görüntüleri
+└── tolga oto boya.txt      # Proje istek notları
 ```
-
----
-
-## 🔧 Hizmetler
-
-| # | Hizmet | Öne Çıkan Detaylar |
-|---|--------|--------------------|
-| 01 | **Oto Boya** | Tam karoser & parça boya, kaporta düzleştirme, orijinal renk eşleştirme, UV dayanımlı boya |
-| 02 | **Boya Koruma** | Seramik kaplama, PPF (Boya Koruma Filmi), nano teknoloji koruma, UV & asit yağmur koruması |
-| 03 | **Pasta Cila** | Makine pastası, tek & çift aşamalı polish, swirl çizik giderme, iç-dış detay temizlik |
-| 04 | **Far Temizleme** | Mekanik zımpara & polish, UV kaplama ile koruma, sararma giderme, uzun süreli şeffaflık |
-
----
-
-## 🗂️ Sayfa Bölümleri
-
-Tek sayfalık yapının (`index.html`) bölümleri ve ID'leri:
-
-| Bölüm | Anchor | İçerik |
-|-------|--------|---------|
-| **Hero** | `#hero` | Ana başlık, slogan, 500+ müşteri / 10+ yıl / %100 memnuniyet istatistikleri |
-| **Tanıtım Videosu** | `#video` | Atölye tanıtım videosu + hizmet listesi özeti |
-| **Hizmetlerimiz** | `#hizmetler` | 4 hizmet kartı (hover animasyonlu) |
-| **Çalışmalarımız** | `#galeri` | Filtreli lightbox galeri (Tümü / Oto Boya / Pasta Cila / Boya Koruma / Far Temizleme) |
-| **Neden Biz?** | `#neden-biz` | 6 öne çıkan özellik (Deneyim, Ekipman, Renk Garantisi, Hızlı Teslimat, Kalite, Konum) |
-| **İletişim** | `#iletisim` | Adres (Maps bağlantılı), telefon, WhatsApp, çalışma saatleri + gömülü harita |
 
 ---
 
@@ -148,10 +176,31 @@ git clone https://github.com/MuratEfeCamoglu/TolgaOtoBoya-Website.git
 cd TolgaOtoBoya-Website
 
 # 3. index.html'i doğrudan tarayıcıda açın
-#    — ya da VS Code Live Server eklentisi ile çalıştırın (önerilir)
+#    — ya da VS Code Live Server eklentisi ile çalıştırın (önerilir, port 5501)
 ```
 
-> **Not:** `images/` ve `videos/` klasörleri büyük medya dosyaları içerdiğinden Git geçmişinde yer almıyor olabilir. Bu klasörleri yerel olarak manuel ekleyiniz.
+---
+
+## 🖼️ Galeriye Yeni Fotoğraf Ekleme
+
+1. Fotoğrafı `images/` klasörüne kopyalayın (örn. `images/galeri-25.jpeg`).
+2. `index.html` içinde `<div class="gallery-grid">` bloğuna mevcut bir öğeyi kopyalayıp düzenleyin:
+
+```html
+<div class="gallery-item reveal" data-category="pasta-cila" onclick="openLightboxSrc(this)">
+  <img src="images/galeri-25.jpeg" alt="Pasta Cila Sonrası" loading="lazy">
+  <div class="gallery-overlay">
+    <div><span class="gallery-tag">Pasta Cila</span>
+      <div class="gallery-label">Pasta Cila — Sonrası</div>
+    </div>
+  </div>
+  <div class="gallery-zoom">🔍</div>
+</div>
+```
+
+- `data-category` filtre butonunu belirler: `oto-boya`, `pasta-cila`, `boya-koruma` veya `far-temizleme`.
+- `alt` metni lightbox'ta fotoğrafın altında başlık olarak görünür.
+- Kartı büyütmek için sınıfa `tall` (iki satır yüksek) veya `wide` (iki sütun geniş) ekleyebilirsiniz.
 
 ---
 
@@ -175,4 +224,4 @@ Bu proje **[MuratEfeCamoglu](https://github.com/MuratEfeCamoglu)** tarafından g
 
 ## 📄 Lisans
 
-Bu proje özel kullanım amaçlıdır. Tüm hakları saklıdır © 2025 Tolga Oto Boya — Efeler / Aydın.
+Bu proje özel kullanım amaçlıdır. Tüm hakları saklıdır © 2026 Tolga Oto Boya — Efeler / Aydın.

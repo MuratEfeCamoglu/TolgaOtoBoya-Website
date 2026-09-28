@@ -1155,7 +1155,7 @@
       </div>
       <div style="color:var(--text);">
         <div class="section-tag" style="margin-bottom:16px">Profesyonel Oto Boya Hizmetleri</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);letter-spacing:2px;margin-bottom:18px;line-height:1.1;">ARACINI­ZI <span style="color:var(--red);">YENİLİYORUZ</span></h3>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--white);letter-spacing:2px;margin-bottom:18px;line-height:1.1;">ARACINIZI <span style="color:var(--red);">YENİLİYORUZ</span></h3>
         <p style="font-size:1rem;line-height:1.85;color:#999;margin-bottom:24px;">10 yılı aşkın deneyimimizle her araç için en yüksek kalite standartlarını uyguluyoruz. Tanıtım videomuzu izleyerek atölyemizi ve çalışma sürecimizi yakından tanıyabilirsiniz.</p>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--red);font-size:1.2rem;">✓</span><span>Fabrika kalitesinde boya uygulaması</span></div>
@@ -1247,8 +1247,7 @@
       <button class="filter-btn" data-filter="boya-koruma">Boya Koruma</button>
       <button class="filter-btn" data-filter="far-temizleme">Far Temizleme</button>
     </div>
-    
-            <div class="gallery-grid">
+    <div class="gallery-grid">
 
       <div class="gallery-item tall reveal" data-category="pasta-cila" onclick="openLightboxSrc(this)">
         <img src="images/galeri-01.jpeg" alt="Pasta Cila Çalışması" loading="lazy">
@@ -1386,10 +1385,10 @@
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
     <div class="lightbox-inner">
-      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-      <button class="lightbox-prev" onclick="prevImg()">←</button>
-      <img id="lightboxImg" src="" alt="">
-      <button class="lightbox-next" onclick="nextImg()">→</button>
+      <button class="lightbox-close" aria-label="Kapat" onclick="closeLightbox()">✕</button>
+      <button class="lightbox-prev" aria-label="Önceki" onclick="prevImg()">←</button>
+      <img id="lightboxImg" alt="">
+      <button class="lightbox-next" aria-label="Sonraki" onclick="nextImg()">→</button>
       <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
   </div>
@@ -1524,7 +1523,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">TOLGA <span>OTO BOYA</span></div>
-    <div class="footer-copy">© 2025 Tolga Oto Boya — 3.Sanayi, Efeler / Aydın</div>
+    <div class="footer-copy">© <span id="year">2026</span> Tolga Oto Boya — 3.Sanayi, Efeler / Aydın</div>
     <div class="footer-social">
       <a href="https://www.instagram.com/tolga.camoglu" target="_blank" rel="noopener noreferrer" title="Instagram">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1680,6 +1679,15 @@
       });
     });
 
+    // Galeri öğelerini klavyeyle açılabilir yap
+    allItems.forEach(item => {
+      item.tabIndex = 0;
+      item.setAttribute('role', 'button');
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightboxSrc(item); }
+      });
+    });
+
     // LIGHTBOX
     let currentIdx = 0;
 
@@ -1701,35 +1709,22 @@
       document.body.style.overflow = 'hidden';
     }
 
-    // Geriye dönük uyumluluk için (kullanılmıyor ama bırakıldı)
-    function openLightbox(idx) {
-      const imgs = getVisibleImgs();
-      const img = imgs[idx];
-      if (!img) return;
-      currentIdx = idx;
-      document.getElementById('lightboxImg').src = img.src;
-      document.getElementById('lightboxCaption').textContent = img.alt;
-      document.getElementById('lightbox').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('active');
       document.body.style.overflow = '';
     }
     function closeLightboxOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
-    function prevImg() {
+    function stepImg(delta) {
       const imgs = getVisibleImgs();
-      currentIdx = (currentIdx - 1 + imgs.length) % imgs.length;
+      if (!imgs.length) return;
+      currentIdx = (currentIdx + delta + imgs.length) % imgs.length;
       document.getElementById('lightboxImg').src = imgs[currentIdx].src;
       document.getElementById('lightboxCaption').textContent = imgs[currentIdx].alt;
     }
-    function nextImg() {
-      const imgs = getVisibleImgs();
-      currentIdx = (currentIdx + 1) % imgs.length;
-      document.getElementById('lightboxImg').src = imgs[currentIdx].src;
-      document.getElementById('lightboxCaption').textContent = imgs[currentIdx].alt;
-    }
+    function prevImg() { stepImg(-1); }
+    function nextImg() { stepImg(1); }
     document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobile();
       if (!document.getElementById('lightbox').classList.contains('active')) return;
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') prevImg();
@@ -1743,6 +1738,8 @@
       const dx = e.changedTouches[0].clientX - touchStartX;
       if (Math.abs(dx) > 50) dx < 0 ? nextImg() : prevImg();
     }, {passive:true});
+
+    document.getElementById('year').textContent = new Date().getFullYear();
 
     // BACK TO TOP
     const backToTopBtn = document.getElementById('backToTop');
